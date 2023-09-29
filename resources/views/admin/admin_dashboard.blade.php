@@ -105,6 +105,10 @@
     }
     @endif
 </script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script src="{{asset('backend/assets/js/code/code.js')}}"></script>
+
 <!-- Plugin js for data table -->
 <script src="{{asset('backend/assets/vendors/datatables.net/jquery.dataTables.js')}}"></script>
 <script src="{{asset('backend/assets/vendors/datatables.net-bs5/dataTables.bootstrap5.js')}}"></script>

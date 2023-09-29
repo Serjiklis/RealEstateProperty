@@ -16,7 +16,7 @@ class UsersTableSeeder extends Seeder
     public function run(): void
     {
         DB::table('users')->insert([
-            //Admin
+//            //Admin
             [
                 'name'=>'Admin',
                 'username'=>'admin',

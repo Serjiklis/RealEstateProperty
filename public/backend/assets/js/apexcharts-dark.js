@@ -127,7 +127,7 @@ $(function() {
       tooltip: {
         theme: 'dark'
       },
-      colors: [colors.primary],    
+      colors: [colors.primary],
       grid: {
         padding: {
           bottom: -4
@@ -172,7 +172,7 @@ $(function() {
         }
       }
     }
-    
+
     var apexBarChart = new ApexCharts(document.querySelector("#apexBar"), options);
     apexBarChart.render();
   }
@@ -183,99 +183,100 @@ $(function() {
 
   // Apex Area chart start
   if ($('#apexArea').length) {
-    var options = {
-      chart: {
-        type: "area",
-        height: 300,
-        parentHeightOffset: 0,
-        foreColor: colors.bodyColor,
-        background: colors.cardBg,
-        toolbar: {
-          show: false
-        },
-        stacked: true,
-      },
-      theme: {
-        mode: 'dark'
-      },
-      tooltip: {
-        theme: 'dark'
-      },
-      colors: [colors.danger, colors.info],
-      stroke: {
-        curve: "smooth",
-        width: 3
-      },
-      dataLabels: {
-        enabled: false
-      },
-      series: [{
-        name: 'Total Views',
-        data: generateDayWiseTimeSeries(0, 18)
-      }, {
-        name: 'Unique Views',
-        data: generateDayWiseTimeSeries(1, 18)
-      }],
-      // markers: {
-      //   size: 5,
-      //   strokeWidth: 3,
-      //   hover: {
-      //     size: 7
-      //   }
-      // },
-      xaxis: {
-        type: "datetime",
-        axisBorder: {
-          color: colors.gridBorder,
-        },
-        axisTicks: {
-          color: colors.gridBorder,
-        },
-      },
-      yaxis: {
-        title: {
-          text: 'Views',
-        },
-        tickAmount: 4,
-        min: 0,
-        labels: {
-          // offsetX: -6,
-        },
-        tooltip: {
-          enabled: true
-        }
-      },
-      grid: {
-        padding: {
-          bottom: -4
-        },
-        borderColor: colors.gridBorder,
-        xaxis: {
-          lines: {
-            show: true
-          }
-        }
-      },
-      tooltip: {
-        x: {
-          format: "dd MMM yyyy"
-        },
-      },
-      fill: {
-        type: 'solid',
-        opacity: [0.4,0.25],
-      },
-      legend: {
-        show: true,
-        position: "top",
-        horizontalAlign: 'center',
-        fontFamily: fontFamily,
-        itemMargin: {
-          horizontal: 8,
-          vertical: 0
-        },
-      },
-    };
+      var options;
+      options = {
+          chart: {
+              type: "area",
+              height: 300,
+              parentHeightOffset: 0,
+              foreColor: colors.bodyColor,
+              background: colors.cardBg,
+              toolbar: {
+                  show: false
+              },
+              stacked: true,
+          },
+          theme: {
+              mode: 'dark'
+          },
+          // tooltip: {
+          //     theme: 'dark'
+          // },
+          colors: [colors.danger, colors.info],
+          stroke: {
+              curve: "smooth",
+              width: 3
+          },
+          dataLabels: {
+              enabled: false
+          },
+          series: [{
+              name: 'Total Views',
+              data: generateDayWiseTimeSeries(0, 18)
+          }, {
+              name: 'Unique Views',
+              data: generateDayWiseTimeSeries(1, 18)
+          }],
+          // markers: {
+          //   size: 5,
+          //   strokeWidth: 3,
+          //   hover: {
+          //     size: 7
+          //   }
+          // },
+          xaxis: {
+              type: "datetime",
+              axisBorder: {
+                  color: colors.gridBorder,
+              },
+              axisTicks: {
+                  color: colors.gridBorder,
+              },
+          },
+          yaxis: {
+              title: {
+                  text: 'Views',
+              },
+              tickAmount: 4,
+              min: 0,
+              labels: {
+                  // offsetX: -6,
+              },
+              tooltip: {
+                  enabled: true
+              }
+          },
+          grid: {
+              padding: {
+                  bottom: -4
+              },
+              borderColor: colors.gridBorder,
+              xaxis: {
+                  lines: {
+                      show: true
+                  }
+              }
+          },
+          tooltip: {
+              x: {
+                  format: "dd MMM yyyy"
+              },
+          },
+          fill: {
+              type: 'solid',
+              opacity: [0.4, 0.25],
+          },
+          legend: {
+              show: true,
+              position: "top",
+              horizontalAlign: 'center',
+              fontFamily: fontFamily,
+              itemMargin: {
+                  horizontal: 8,
+                  vertical: 0
+              },
+          },
+      };
 
     var chart = new ApexCharts(document.querySelector("#apexArea"), options);
     chart.render();
@@ -318,9 +319,9 @@ $(function() {
       theme: {
         mode: 'dark'
       },
-      tooltip: {
-        theme: 'dark'
-      },
+      // tooltip: {
+      //   theme: 'dark'
+      // },
       colors: [colors.danger, colors.info],
       grid: {
         borderColor: colors.gridBorder,
@@ -458,7 +459,7 @@ $(function() {
 
 
 
-  
+
   // Apex Pie chart end
   if ($('#apexPie').length) {
     var options = {
@@ -496,9 +497,9 @@ $(function() {
       },
       series: [44, 55, 13, 33]
     };
-    
+
     var chart = new ApexCharts(document.querySelector("#apexPie"), options);
-    chart.render();  
+    chart.render();
   }
   // Apex Pie chart end
 
@@ -750,7 +751,7 @@ $(function() {
 
 
 
-  
+
   // Apex Scatter chart start
   if ($('#apexScatter').length) {
     var options = {
@@ -863,7 +864,7 @@ $(function() {
       },
       colors: [colors.primary, colors.warning, colors.danger, colors.info],
       fill: {
-        
+
       },
       grid: {
         padding: {
@@ -884,7 +885,7 @@ $(function() {
             background: colors.gridBorder,
             strokeWidth: '100%',
             opacity: 1,
-            margin: 5, 
+            margin: 5,
         },
         }
       },
@@ -901,11 +902,11 @@ $(function() {
         },
       },
     };
-    
+
     var chart = new ApexCharts(document.querySelector("#apexRadialBar"), options);
     chart.render();
     var chartAreaBounds = chart.w.globals.dom.baseEl.querySelector('.apexcharts-inner').getBoundingClientRect();
   }
-  // Apex Radialbar chart end  
+  // Apex Radialbar chart end
 
 });

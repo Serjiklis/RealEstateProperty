@@ -31,7 +31,26 @@
                             <a href="{{@route('all.type')}}" class="nav-link">All Type</a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/email/read.html" class="nav-link">Add Type</a>
+                            <a href="{{@route('add.type')}}" class="nav-link">Add Type</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="collapse" href="#amenity" role="button" aria-expanded="false" aria-controls="emails">
+                    <i class="link-icon" data-feather="mail"></i>
+                    <span class="link-title">Amenity</span>
+                    <i class="link-arrow" data-feather="chevron-down"></i>
+                </a>
+                <div class="collapse" id="amenity">
+                    <ul class="nav sub-menu">
+                        <li class="nav-item">
+                            <a href="{{@route('all.amenities')}}" class="nav-link">All Amenities</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{@route('add.amenity')}}" class="nav-link">Add Amenity</a>
                         </li>
                     </ul>
                 </div>
@@ -80,6 +99,21 @@
                 </div>
             </li>
 
+            <li class="nav-item nav-category">Role & Permission</li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="collapse" href="#advancedUI" role="button" aria-expanded="false" aria-controls="advancedUI">
+                    <i class="link-icon" data-feather="anchor"></i>
+                    <span class="link-title">Role & Permission</span>
+                    <i class="link-arrow" data-feather="chevron-down"></i>
+                </a>
+                <div class="collapse" id="advancedUI">
+                    <ul class="nav sub-menu">
+                        <li class="nav-item">
+                            <a href="{{route('all.permission')}}" class="nav-link">All Permission</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
             <li class="nav-item nav-category">Docs</li>
             <li class="nav-item">
                 <a href="https://www.nobleui.com/html/documentation/docs.html" target="_blank" class="nav-link">
