@@ -4,7 +4,7 @@
         <div class="col-md-6 col-xl-8">
             <div class="card p-3">
                 <div class="card-body">
-                    <h6 class="card-title">Add amenity type</h6>
+                    <h6 class="card-title">Add Permissions</h6>
                     <form method="POST" action="{{route('store.permission')}}" class="forms-sample">
                         @csrf
 
