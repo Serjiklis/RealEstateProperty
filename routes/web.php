@@ -98,4 +98,16 @@ Route::middleware(['auth','role:admin'])->group(function () {
         Route::post('/import/permission', 'Import')->name('import');
         Route::get('/export/permission', 'ExportPermission')->name('export.permission');
     });
+    //Role  All Route
+    Route::controller(RoleController::class)->group(function () {
+        Route::get('/all/roles', 'AllRoles')->name('all.roles');
+        Route::get('/add/roles', 'AddRoles')->name('add.roles');
+        Route::post('/store/roles', 'StoreRoles')->name('store.roles');
+        Route::get('/edit/role/{id}', 'EditRole')->name('edit.role');
+        Route::post('/update/role', 'UpdateRole')->name('update.role');
+        Route::get('/delete/role/{id}', 'DeleteRole')->name('delete.role');
+
+        Route::get('/add/roles/permission', 'AddRolesPermission')->name('add.roles.permission');
+    });
+
 });//End Group Admin Middleware

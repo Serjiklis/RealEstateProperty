@@ -84,6 +84,7 @@
                     </ul>
                 </div>
             </li>
+
             <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="#advancedUI" role="button" aria-expanded="false" aria-controls="advancedUI">
                     <i class="link-icon" data-feather="anchor"></i>
@@ -101,15 +102,21 @@
 
             <li class="nav-item nav-category">Role & Permission</li>
             <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="collapse" href="#advancedUI" role="button" aria-expanded="false" aria-controls="advancedUI">
-                    <i class="link-icon" data-feather="anchor"></i>
+                <a class="nav-link" data-bs-toggle="collapse" href="#permission" role="button" aria-expanded="false" aria-controls="emails">
+                    <i class="link-icon" data-feather="feather"></i>
                     <span class="link-title">Role & Permission</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
-                <div class="collapse" id="advancedUI">
+                <div class="collapse" id="permission">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
                             <a href="{{route('all.permission')}}" class="nav-link">All Permission</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('all.roles')}}" class="nav-link">All Roles</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('add.roles.permission')}}" class="nav-link">Role in Permission</a>
                         </li>
                     </ul>
                 </div>

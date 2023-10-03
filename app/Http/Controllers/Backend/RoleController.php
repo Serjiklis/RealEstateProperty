@@ -12,16 +12,17 @@ use App\Exports\PermissionExport;
 
 class RoleController extends Controller
 {
+//    CRUD Permission Methods
     public function AllPermission()
     {
         $permissions = Permission::all();
         return view('backend.pages.permission.all_permission', compact('permissions'));
-    }
+    }//End Method
 
     public function AddPermission()
     {
         return view('backend.pages.permission.add_permission');
-    }
+    }//End Method
 
     public function StorePermission(Request $request)
     {
@@ -38,13 +39,13 @@ class RoleController extends Controller
         ];
 
         return redirect()->route('all.permission')->with($notification);
-    }
+    }//End Method
 
     public function EditPermission($id)
     {
         $permission = Permission::findOrFail($id);
         return view('backend.pages.permission.edit_permission',compact('permission'));
-    }
+    }//End Method
 
     public function UpdatePermission(Request $request)
     {
@@ -62,7 +63,7 @@ class RoleController extends Controller
         ];
 
         return redirect()->route('all.permission')->with($notification);
-    }
+    }//End Method
 
     public function DeletePermission($id)
     {
@@ -75,12 +76,13 @@ class RoleController extends Controller
         );
 
         return redirect()->back()->with($notification);
-    }
+    }//End Method
 
+//    Import and Export Method
     public function ImportPermission()
     {
         return view('backend.pages.permission.import_permission');
-    }
+    }//End Method
 
     public function Import(Request $request)
     {
@@ -92,11 +94,80 @@ class RoleController extends Controller
         ];
 
         return redirect()->route('all.permission')->with($notification);
-    }
+    }//End Method
 
     public function ExportPermission()
     {
       return Excel::download(new PermissionExport(),'permissions.xlsx' );
+    }//End Method
+
+//    Role All Method
+    public function AllRoles()
+    {
+        $roles = Role::all();
+        return view('backend.pages.roles.all_roles', compact('roles'));
+    }//End Method
+
+    public function AddRoles()
+    {
+        return view('backend.pages.roles.add_roles');
+    }
+
+    public function StoreRoles(Request $request)
+    {
+        Role::create([
+            'name' => $request->name,
+        ]);
+
+        $notification = [
+            'message' => 'Role Create Successfully',
+            'alert-type' => 'success',
+        ];
+
+        return redirect()->route('all.roles')->with($notification);
+    }
+
+    public function EditRole($id)
+    {
+        $role = Role::findOrFail($id);
+        return view('backend.pages.roles.edit_role',compact('role'));
+    }
+
+    public function UpdateRole(Request $request)
+    {
+        $role_id = $request->id;
+       Role::findOrFail($role_id)->update([
+            'name' => $request->name,
+        ]);
+
+        $notification = [
+            'message' => 'Role Update Successfully',
+            'alert-type' => 'success',
+        ];
+
+        return redirect()->route('all.roles')->with($notification);
+    }//End Method
+
+    public function DeleteRole($id)
+    {
+        $role=Role::findOrFail($id);
+        $role->delete();
+
+        $notification = array(
+            'message' => 'Role Deleted Successfully',
+            'alert-type' => 'success',
+        );
+
+        return redirect()->back()->with($notification);
+    }//End Method
+
+    //Add Role Permission all Method
+    public function AddRolesPermission()
+    {
+        $roles = Role::all();
+        $permission = Permission::all();
+        return view('backend.pages.rolesetup.add_roles_permission',
+                    compact('roles', 'permission'));
     }
 
 }
