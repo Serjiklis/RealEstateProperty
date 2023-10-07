@@ -23,8 +23,26 @@
         <label class="form-check-label" for="checkDefault">
             Permission All
         </label>
-
     </div>
+                        <hr>
+                        @foreach($permission_groups as $group)
+<div class="row">
+    <div class="col-3">
+        <input type="checkbox" class="form-check-input" id="checkDefault">
+        <label class="form-check-label" for="checkDefault">
+            {{$group->group_name}}
+        </label>
+    </div>
+
+    <div class="col-9">
+        <input type="checkbox" class="form-check-input" id="checkDefault">
+        <label class="form-check-label" for="checkDefault">
+            Permission All
+        </label>
+    </div>
+
+</div>
+                        @endforeach
                         <button type="submit" class="btn btn-primary me-2">Add Role</button>
 
                     </form>

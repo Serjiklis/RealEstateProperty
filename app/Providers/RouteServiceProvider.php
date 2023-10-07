@@ -30,11 +30,17 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->routes(function () {
             Route::middleware('api')
-                ->prefix('api')
-                ->group(base_path('routes/api.php'));
+                ->prefix('api/v1')
+                ->group(base_path('routes/api_v1.php'));
+
+            // Add a new route group for API v2 with the 'api/v2' prefix
+            Route::middleware('api')
+                ->prefix('api/v2') // Change this to 'api/v2' for the desired prefix
+                ->group(base_path('routes/api_v2.php')); // Create api_v2.php file for v2 routes
 
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));
         });
     }
+
 }
