@@ -5,7 +5,7 @@
 
         <nav class="page-breadcrumb">
             <ol class="breadcrumb">
-                <a href="{{route('add.roles')}}" class="btn btn-inverse-info">Add Admin</a>
+                <a href="{{route('add.admin')}}" class="btn btn-inverse-info">Add Admin</a>
             </ol>
         </nav>
 
@@ -20,9 +20,11 @@
                                 <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Admin Name</th>
-                                    <th>Status</th>
                                     <th>Image</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>Role</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
@@ -30,9 +32,15 @@
                                 @foreach($alladmin as $key => $item)
                                     <tr>
                                         <td>{{$key+1}}</td>
+                                        <td><img src="{{(!empty($item->photo)) ? url('upload/admin_images/'.$item->photo) : url('upload/no_image.jpg')}}" style="width: 40px; height: 40px"></td>
                                         <td>{{$item->name}}</td>
-                                        <td>{{$item->status}}</td>
-                                        <td><img src="{{(!empty($item->photo)) ? url('upload/admin_images/'.$item->photo) : url('upload/no_image.jpg')}}" style="width: 70px; height: 70px"></td>
+                                        <td>{{$item->email}}</td>
+                                        <td>{{$item->phone}}</td>
+                                        <td>
+                                            @foreach($item->roles as $role)
+                                                <span class="badge badge-pill bg-danger">{{$role->name}}</span>
+                                            @endforeach
+                                        </td>
                                         <td>
                                             <a href="{{route('edit.role', $item->id)}}" class="btn btn-inverse-warning">Edit</a>
                                             <a href="{{route('delete.role', ['id'=>$item->id])}}" class="btn btn-inverse-danger" id="delete">Delete</a>
