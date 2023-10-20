@@ -127,13 +127,13 @@ class RoleController extends Controller
         ];
 
         return redirect()->route('all.roles')->with($notification);
-    }
+    }//End Method
 
     public function EditRole($id)
     {
         $role = Role::findOrFail($id);
         return view('backend.pages.roles.edit_role',compact('role'));
-    }
+    }//End Method
 
     public function UpdateRole(Request $request)
     {
@@ -171,7 +171,7 @@ class RoleController extends Controller
         $permission_groups = User::getParmissionGroup();
         return view('backend.pages.rolesetup.add_roles_permission',
                     compact('roles', 'permission', 'permission_groups'));
-    }
+    }//End Method
 
     public function RolePermissionStore(Request $request)
     {
@@ -192,13 +192,13 @@ class RoleController extends Controller
         ];
 
         return redirect()->route('all.roles.permission')->with($notification);
-    }
+    }//End Method
 
     public function AllRolesPermission()
     {
         $roles = Role::all();
         return view('backend.pages.rolesetup.all_roles_permission', compact('roles'));
-    }
+    }//End Method
 
     public function AdminEditRoles($id)
     {
@@ -207,7 +207,7 @@ class RoleController extends Controller
         $permission_groups = User::getParmissionGroup();
         return view('backend.pages.rolesetup.edit_roles_permission',
             compact('role', 'permission', 'permission_groups'));
-    }
+    }//End Method
 
     public function AdminRolesUpdate(Request $request, $id)
     {
@@ -224,7 +224,7 @@ class RoleController extends Controller
         ];
 
         return redirect()->route('all.roles.permission')->with($notification);
-    }
+    }//End Method
 
     public function AdminDeleteRole($id)
     {
@@ -240,6 +240,6 @@ class RoleController extends Controller
         );
         return redirect()->back()->with($notification);
 
-    }
+    }//End Method
 
 }
