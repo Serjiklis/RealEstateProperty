@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Imports\PermissionImport;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
@@ -170,6 +171,59 @@ class RoleController extends Controller
         $permission_groups = User::getParmissionGroup();
         return view('backend.pages.rolesetup.add_roles_permission',
                     compact('roles', 'permission', 'permission_groups'));
+    }
+
+    public function RolePermissionStore(Request $request)
+    {
+        $data = [];
+        $permissions = $request->permission;
+
+        foreach ($permissions as $key => $item) {
+            $data['role_id'] = $request->role_id;
+            $data['permission_id'] = $item;
+
+            DB::table('role_has_permissions')->insert($data);
+        }
+
+
+        $notification = [
+            'message' => 'Role Permission Added Successfully',
+            'alert-type' => 'success',
+        ];
+
+        return redirect()->route('all.roles.permission')->with($notification);
+    }
+
+    public function AllRolesPermission()
+    {
+        $roles = Role::all();
+        return view('backend.pages.rolesetup.all_roles_permission', compact('roles'));
+    }
+
+    public function AdminEditRoles($id)
+    {
+        $role = Role::findOrFail($id);
+        $permission = Permission::all();
+        $permission_groups = User::getParmissionGroup();
+        return view('backend.pages.rolesetup.edit_roles_permission',
+            compact('role', 'permission', 'permission_groups'));
+    }
+
+    public function AdminRolesUpdate(Request $request, $id)
+    {
+        $role = Role::findOrFail($id);
+        $permission = $request->permission;
+
+        if(!empty($permission)){
+            $role->syncPermissions($permission);
+        }
+
+        $notification = [
+            'message' => 'Role Permission Updated Successfully',
+            'alert-type' => 'success',
+        ];
+
+        return redirect()->route('all.roles.permission')->with($notification);
     }
 
 }

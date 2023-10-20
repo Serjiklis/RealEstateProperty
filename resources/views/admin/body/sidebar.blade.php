@@ -103,7 +103,7 @@
             <li class="nav-item nav-category">Role & Permission</li>
             <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="#permission" role="button" aria-expanded="false" aria-controls="emails">
-                    <i class="link-icon" data-feather="feather"></i>
+                    <i class="link-icon" data-feather="anchor"></i>
                     <span class="link-title">Role & Permission</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
@@ -117,6 +117,9 @@
                         </li>
                         <li class="nav-item">
                             <a href="{{route('add.roles.permission')}}" class="nav-link">Role in Permission</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('all.roles.permission')}}" class="nav-link">All Role in Permission</a>
                         </li>
                     </ul>
                 </div>
