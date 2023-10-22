@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="404 page">
+    <meta name="description" content="403 page">
 
 
-    <title>404 error page</title>
+    <title>403 error page</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,9 +41,9 @@
             <div class="row w-100 mx-0 auth-page">
                 <div class="col-md-8 col-xl-6 mx-auto d-flex flex-column align-items-center">
                     <img src="{{asset('backend/assets/images/others/404.svg')}}" class="img-fluid mb-2" alt="404">
-                    <h1 class="fw-bolder mb-22 mt-2 tx-80 text-muted">404</h1>
-                    <h4 class="mb-2">Page Not Found</h4>
-                    <h6 class="text-muted mb-3 text-center">Oopps!! The page you were looking for doesn't exist.</h6>
+                    <h1 class="fw-bolder mb-22 mt-2 tx-80 text-muted">403</h1>
+                    <h4 class="mb-2">Access Denied</h4>
+                    <h6 class="text-muted mb-3 text-center">Oopps!! You do not have access to this page.</h6>
                     <a href="{{route('main')}}">Back to home</a>
                 </div>
             </div>
