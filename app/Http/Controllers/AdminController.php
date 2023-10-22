@@ -116,13 +116,13 @@ class AdminController extends Controller
     {
         $alladmin = User::where('role', 'admin')->get();
         return view('backend.pages.admin.all_admin', compact('alladmin'));
-    }
+    }// End Method
 
     public function AddAdmin()
     {
         $roles = Role::all();
         return view('backend.pages.admin.add_admin', compact('roles'));
-    }
+    }// End Method
 
     public function StoreAdmin(Request $request)
     {
@@ -149,6 +149,57 @@ class AdminController extends Controller
         ];
 
         return redirect()->route('all.admin')->with($notification);
+    }// End Method
+
+    public function EditAdmin($id)
+    {
+        $user = User::findOrFail($id);
+        $roles = Role::all();
+        return view('backend.pages.admin.edit_admin',compact('user', 'roles'));
+    }// End Method
+
+    public function UpdateAdmin(Request $request, $id)
+    {
+        $user = User::findOrFail($id);
+        $user->username = $request->username;
+        $user->name= $request->name;
+        $user->email = $request->email;
+        $user->phone = $request->phone;
+        $user->address = $request->address;
+        $user->role = 'admin';
+        $user->status ='active';
+        $user->save();
+
+        $user->roles()->detach();
+
+        if($request->roles){
+            $user->assignRole($request->roles);
+        }
+
+
+        $notification = [
+            'message' => 'New Admin User Update Successfully',
+            'alert-type' => 'success',
+        ];
+
+        return redirect()->route('all.admin')->with($notification);
+
+    }
+
+    public function DeleteAdmin($id)
+    {
+        $user = User::findOrFail($id);
+        if(!is_null($user))
+        {
+            $user->delete();
+        }
+
+        $notification = [
+            'message' => 'Admin User Deleted Successfully',
+            'alert-type' => 'success',
+        ];
+
+        return redirect()->back()->with($notification);
     }
 
 }
