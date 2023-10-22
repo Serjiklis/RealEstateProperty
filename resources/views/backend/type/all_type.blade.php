@@ -2,13 +2,13 @@
 @section('admin')
 
     <div class="page-content">
-
+        @if(Auth::user()->can('add.type'))
         <nav class="page-breadcrumb">
             <ol class="breadcrumb">
                 <a href="{{route('add.type')}}" class="btn btn-inverse-info">Add Property Type</a>
             </ol>
         </nav>
-
+        @endif
         <div class="row">
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
@@ -22,7 +22,9 @@
                                     <th>ID</th>
                                     <th>Type Name</th>
                                     <th>Type Icon</th>
+                                    @if(Auth::user()->can('edit.type') || Auth::user()->can('delete.type') )
                                     <th>Action</th>
+                                    @endif
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -31,10 +33,19 @@
                                     <td>{{$key+1}}</td>
                                     <td>{{$item->type_name}}</td>
                                     <td>{{$item->type_icon}}</td>
+
+                                    @if(Auth::user()->can('edit.type') || Auth::user()->can('delete.type') )
                                     <td>
+                                        @if(Auth::user()->can('edit.type'))
                                         <a href="{{route('edit.type', $item->id)}}" class="btn btn-inverse-warning">Edit</a>
+                                        @endif
+                                            @if(Auth::user()->can('delete.type'))
                                         <a href="{{route('delete.type', ['id'=>$item->id])}}" class="btn btn-inverse-danger" id="delete">Delete</a>
+                                            @endif
                                     </td>
+                                    @endif
+
+
                                 </tr>
                                 @endforeach
                                 </tbody>
